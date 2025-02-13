@@ -15,7 +15,7 @@
  * @param size: the capacity of the PCBTable
  */
 PCBTable::PCBTable(int size) {
-   arr = new PCB[size];
+   arr = new PCB*[size];
 
 }
 
@@ -23,9 +23,7 @@ PCBTable::PCBTable(int size) {
  * @brief Destroy the PCBTable object. Make sure to delete all the PCBs in the table.
  *
  */
-PCBTable::~PCBTable() {
-   delete [] arr; 
-}
+PCBTable::~PCBTable() {delete [] arr;}
 
 /**
  * @brief Get the PCB at index "idx" of the PCBTable.
@@ -34,7 +32,7 @@ PCBTable::~PCBTable() {
  * @return PCB*: pointer to the PCB at index "idx"
  */
 PCB* PCBTable::getPCB(unsigned int idx) {
-    PCB* ptr = arr[idx]; 
+    PCB* ptr = arr[idx];  
     if (ptr == NULL){
         cout << "There is no PCB at this index!" <<endl; 
         return NULL;

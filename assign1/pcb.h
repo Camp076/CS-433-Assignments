@@ -31,6 +31,7 @@ public:
 	// The current state of the process.
 	// A process in the ReadyQueue should be in READY state
 	ProcState state;
+    PCB* next; //for organizing ready queue
 
 	/**
 	 * @brief Construct a new PCB object
@@ -42,6 +43,7 @@ public:
         this->id = id;
         this->priority = priority;
         this->state = state;
+        this->next = NULL; 
     }
 
     /**
@@ -82,7 +84,7 @@ public:
      * @param state
      */
     void setState(ProcState state) {
-        // TODO: add your code here
+      this->state = state;
     }
 
     /**
@@ -90,7 +92,7 @@ public:
      * @param priority
      */
     void setPriority(unsigned int priority) {
-        // TODO: add your code here
+        this->priority = priority; 
     }
 
     /**

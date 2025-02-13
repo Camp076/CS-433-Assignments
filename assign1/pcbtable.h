@@ -19,9 +19,10 @@ class PCBTable {
 private:
     // choose a data structure for the PCBTable. 
     // You can use an array of PCB pointers, e.g. vector<PCB *>. 
-    PCB* arr[];
+
     unsigned int idx, priority, pid;
     int size; 
+    PCB** arr = new PCB*[size];
 
 public:
     /**

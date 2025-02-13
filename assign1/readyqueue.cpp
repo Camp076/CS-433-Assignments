@@ -11,7 +11,9 @@ using namespace std;
  * @brief Constructor for the ReadyQueue class.
  */
  ReadyQueue::ReadyQueue()  {
-     //TODO: add your code here
+    for (int i = 1; i < 51; i++){
+        buckets[i] = NULL;
+    }
  }
 
 /**
@@ -27,8 +29,18 @@ ReadyQueue::~ReadyQueue() {
  * @param pcbPtr: the pointer to the PCB to be added
  */
 void ReadyQueue::addPCB(PCB *pcbPtr) {
-    //TODO: add your code here
     // When adding a PCB to the queue, you must change its state to READY.
+    pcbPtr->setState(ProcState::READY);  
+    int i = pcbPtr->priority; 
+    num ++; 
+    if (buckets[i] == NULL){
+        buckets[i] = tails[i] = pcbPtr; 
+        return; 
+    } 
+    tails[i]->next = pcbPtr; 
+    tails[i] = pcbPtr; 
+    return;
+
 }
 
 /**
@@ -37,8 +49,21 @@ void ReadyQueue::addPCB(PCB *pcbPtr) {
  * @return PCB*: the pointer to the PCB with the highest priority
  */
 PCB* ReadyQueue::removePCB() {
-    //TODO: add your code here
     // When removing a PCB from the queue, you must change its state to RUNNING.
+    int idx;
+    PCB* ptr; 
+    for (int i = 50; i > 0; i--){
+        if (buckets[i] != NULL){
+            ptr = buckets[i];
+            buckets[i] = ptr->next; 
+
+            ptr->setState(ProcState::RUNNING); 
+            delete ptr; 
+            return; 
+        }
+    }
+    cout << "The ready queue is empty!" <<endl; 
+
 }
 
 /**
@@ -47,7 +72,7 @@ PCB* ReadyQueue::removePCB() {
  * @return int: the number of PCBs in the queue
  */
 int ReadyQueue::size() {
-    //TODO: add your code here
+    return num;
 }
 
 /**
