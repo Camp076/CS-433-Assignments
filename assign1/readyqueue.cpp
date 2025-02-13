@@ -39,6 +39,24 @@ void ReadyQueue::addPCB(PCB *pcbPtr) {
 PCB* ReadyQueue::removePCB() {
     //TODO: add your code here
     // When removing a PCB from the queue, you must change its state to RUNNING.
+<<<<<<< Updated upstream
+=======
+    int idx;
+    PCB* ptr; 
+    for (int i = 50; i > 0; i--){
+        if (buckets[i] != NULL){
+            ptr = buckets[i];
+            buckets[i] = ptr->next; 
+
+            ptr->setState(ProcState::RUNNING); 
+            delete ptr; 
+            num --; 
+            return; 
+        }
+    }
+    cout << "The ready queue is empty!" <<endl; 
+
+>>>>>>> Stashed changes
 }
 
 /**
@@ -54,5 +72,12 @@ int ReadyQueue::size() {
  * @brief Display the PCBs in the queue.
  */
 void ReadyQueue::displayAll() {
-    //TODO: add your code here
+    PCB* ptr; 
+    int i = 1; 
+    ptr = buckets[i];
+    while (i != 51){
+        ptr->display(); 
+        ptr = ptr->next; 
+        if (ptr == NULL){i++; ptr = buckets[i];}
+    }
 }
