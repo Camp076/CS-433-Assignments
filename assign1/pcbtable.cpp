@@ -1,7 +1,7 @@
 /**
  * Assignment 1: priority queue of processes
  * @file pcbtable.h
- * @author ??? (TODO: your name)
+ * @author Jaiden Camp
  * @brief This is the implementation file for the PCBTable class.
  * //You must complete the all parts marked as "TODO". Delete "TODO" after you are done.
  * // Remember to add sufficient comments to your code
@@ -15,7 +15,8 @@
  * @param size: the capacity of the PCBTable
  */
 PCBTable::PCBTable(int size) {
-   // TODO: add your code here
+   arr = new PCB[size];
+
 }
 
 /**
@@ -23,8 +24,7 @@ PCBTable::PCBTable(int size) {
  *
  */
 PCBTable::~PCBTable() {
-   // TODO: add your code here
-   // Delete all the PCBs in the table
+   delete [] arr; 
 }
 
 /**
@@ -34,8 +34,14 @@ PCBTable::~PCBTable() {
  * @return PCB*: pointer to the PCB at index "idx"
  */
 PCB* PCBTable::getPCB(unsigned int idx) {
-    // TODO: add your code here
-    return NULL;
+    PCB* ptr = arr[idx]; 
+    if (ptr == NULL){
+        cout << "There is no PCB at this index!" <<endl; 
+        return NULL;
+    }
+
+    return ptr; 
+    
 }
 
 /**
@@ -44,6 +50,13 @@ PCB* PCBTable::getPCB(unsigned int idx) {
  * @param pcb: the PCB to add
  */
 void PCBTable::addPCB(PCB *pcb, unsigned int idx) {
-    // TODO: add your code here
     // Add a PCB pointer to the PCBTable at index idx.
+    PCB* ptr = arr[idx];
+    if (ptr != NULL){
+        cout << "This index is already in use!" <<endl;
+        return; 
+    }
+
+    arr[idx] = pcb; 
+    return; 
 }
