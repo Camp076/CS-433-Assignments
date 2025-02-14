@@ -19,16 +19,8 @@ using namespace std;
 /**
  *@brief Destructor
 */
-ReadyQueue::~ReadyQueue() {
-    int i = 50; 
-    PCB* ptr;
-    PCB* ptr2; 
-    for (int i = 50; i > 0; i--){
-       
+ReadyQueue::~ReadyQueue() {}
 
-    }
-     
-}
 
 /**
  * @brief Add a PCB representing a process into the ready queue.
