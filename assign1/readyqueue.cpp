@@ -69,7 +69,7 @@ PCB* ReadyQueue::removePCB() {
 
             ptr->setState(ProcState::RUNNING); 
             delete ptr; 
-            return; 
+            return ptr; 
         }
     }
     cout << "The ready queue is empty!" <<endl; 
