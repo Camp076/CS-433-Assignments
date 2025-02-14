@@ -57,8 +57,7 @@ void ReadyQueue::addPCB(PCB *pcbPtr) {
  * @return PCB*: the pointer to the PCB with the highest priority
  */
 PCB* ReadyQueue::removePCB() {
-    // When removing a PCB from the queue, you must change its state to RUNNING.
-    int idx;
+    // When removing a PCB from the queue, you must change its state to RUNNING.s
     PCB* ptr;
      
     for (int i = 50; i > 0; i--){
