@@ -46,6 +46,7 @@ public:
         this->priority = priority;
         this->state = state;
         this->next = NULL; 
+        this->prev = NULL; 
     }
 
     /**

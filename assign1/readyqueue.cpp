@@ -44,7 +44,8 @@ void ReadyQueue::addPCB(PCB *pcbPtr) {
         buckets[i] = tails[i] = pcbPtr; 
         return; 
     } 
-    tails[i]->next = pcbPtr; 
+    tails[i]->next = pcbPtr;
+    pcbPtr->prev = tails[i]; 
     tails[i] = pcbPtr; 
     return;
 
@@ -64,6 +65,7 @@ PCB* ReadyQueue::removePCB() {
         if (buckets[i] != NULL){
             ptr = buckets[i];
             buckets[i] = ptr->next; 
+            buckets[i]->prev = NULL; 
 
             ptr->setState(ProcState::RUNNING); 
             delete ptr; 
