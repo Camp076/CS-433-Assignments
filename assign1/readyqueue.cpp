@@ -20,7 +20,14 @@ using namespace std;
  *@brief Destructor
 */
 ReadyQueue::~ReadyQueue() {
-    //TODO: add your code to release dynamically allocate memory
+    int i = 50; 
+    PCB* ptr;
+    PCB* ptr2; 
+    for (int i = 50; i > 0; i--){
+       
+
+    }
+     
 }
 
 /**
@@ -51,7 +58,8 @@ void ReadyQueue::addPCB(PCB *pcbPtr) {
 PCB* ReadyQueue::removePCB() {
     // When removing a PCB from the queue, you must change its state to RUNNING.
     int idx;
-    PCB* ptr; 
+    PCB* ptr;
+     
     for (int i = 50; i > 0; i--){
         if (buckets[i] != NULL){
             ptr = buckets[i];
@@ -79,5 +87,15 @@ int ReadyQueue::size() {
  * @brief Display the PCBs in the queue.
  */
 void ReadyQueue::displayAll() {
-    //TODO: add your code here
+    int i = 1; 
+    PCB* ptr = buckets[i];
+    while (i != 51){
+            if (buckets[i] != NULL){
+            ptr->display(); 
+            ptr = ptr->next;  
+            if (ptr == NULL){i++;}
+        }  
+        i++;
+    } 
+    
 }

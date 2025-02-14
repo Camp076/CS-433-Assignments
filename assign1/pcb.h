@@ -31,7 +31,9 @@ public:
 	// The current state of the process.
 	// A process in the ReadyQueue should be in READY state
 	ProcState state;
-    PCB* next; //for organizing ready queue
+    //for organizing ready queue
+    PCB* next;
+    PCB* prev;
 
 	/**
 	 * @brief Construct a new PCB object
