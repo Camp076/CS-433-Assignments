@@ -11,8 +11,6 @@ using namespace std;
 // Remember to addPCB sufficient comments to your code
 
 #pragma once
-#include <iostream>
-using namespace std;
 
 // enum class of process state
 // A process (PCB) in ready queue should be in READY state
