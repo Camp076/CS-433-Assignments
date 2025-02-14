@@ -73,7 +73,7 @@ PCB* ReadyQueue::removePCB() {
         }
     }
     cout << "The ready queue is empty!" <<endl; 
-
+    return NULL; 
 }
 
 /**
