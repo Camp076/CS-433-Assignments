@@ -18,7 +18,7 @@ PCBTable::PCBTable(int size) {
    this->SIZE = size; 
    this->arr = new PCB*[SIZE];
    for (int i = 0; i < SIZE; i++){
-       arr[i] = NULL; 
+       this->arr[i] = NULL; 
    }
 
 }
