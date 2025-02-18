@@ -1,8 +1,7 @@
-
 /**
  * Assignment 1: priority queue of processes
  * @file test1.cpp
- * @author
+ * @author 
  * @brief This file tests the correctness of your implementation of the readyqueue and pcbtable
  * //You must complete the all parts marked as "TODO". Delete "TODO" after you are done.
  * // Remember to add sufficient comments to your code
@@ -22,7 +21,7 @@
      std::cout << "=================================" << std::endl;
  
      ReadyQueue q1;
-     PCBTable table;
+     PCBTable table(50);
  
      for (int i = 1; i <= 50; i++) {
          // Add a new PCB with id = i, priority = i to the table at index i
