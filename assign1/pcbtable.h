@@ -23,7 +23,7 @@ private:
     // You can use an array of PCB pointers, e.g. vector<PCB *>. 
 
     unsigned int idx, priority, pid;
-    int SIZE; 
+    int capacity; 
     PCB** arr;
 
 public:

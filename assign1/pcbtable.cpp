@@ -15,9 +15,9 @@
  * @param size: the capacity of the PCBTable
  */
 PCBTable::PCBTable(int size) {
-   this->SIZE = size; 
-   this->arr = new PCB*[SIZE];
-   for (int i = 0; i < SIZE; i++){
+   this->capacity = size; 
+   this->arr = new PCB*[capacity];
+   for (int i = 0; i < capacity; i++){
        this->arr[i] = NULL; 
    }
 }
