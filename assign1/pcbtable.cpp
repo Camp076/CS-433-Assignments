@@ -20,7 +20,6 @@ PCBTable::PCBTable(int size) {
    for (int i = 0; i < SIZE; i++){
        this->arr[i] = NULL; 
    }
-
 }
 
 /**
