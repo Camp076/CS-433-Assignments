@@ -24,7 +24,7 @@ private:
 
     unsigned int idx, priority, pid;
     int SIZE; 
-    PCB** arr = new PCB*[SIZE];
+    PCB** arr;
 
 public:
     /**
