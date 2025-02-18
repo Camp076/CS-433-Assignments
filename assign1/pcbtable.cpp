@@ -26,7 +26,13 @@ PCBTable::PCBTable(int size) {
  * @brief Destroy the PCBTable object. Make sure to delete all the PCBs in the table.
  *
  */
-PCBTable::~PCBTable() {delete [] arr;}
+PCBTable::~PCBTable() {
+    for (int i = 0; i < capacity; i++){
+        if (arr[i] != NULL){
+            delete arr[i]; 
+        }
+    }
+    delete [] arr;}
 
 /**
  * @brief Get the PCB at index "idx" of the PCBTable.
