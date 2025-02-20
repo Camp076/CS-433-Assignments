@@ -82,6 +82,7 @@ PCB* ReadyQueue::removePCB() {
     ptr->next = NULL;
     ptr->prev = NULL; 
     ptr->setState(ProcState::RUNNING);
+    cout << "Number of elements: " <<num <<endl; 
     return ptr;
 }
 
