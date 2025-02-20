@@ -22,7 +22,6 @@ private:
     // choose a data structure for the PCBTable. 
     // You can use an array of PCB pointers, e.g. vector<PCB *>. 
 
-    unsigned int idx, priority, pid;
     int capacity; 
     PCB** arr;
 

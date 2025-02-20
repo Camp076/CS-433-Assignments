@@ -32,7 +32,8 @@ PCBTable::~PCBTable() {
             delete arr[i]; 
         }
     }
-    delete [] arr;}
+    delete [] arr;
+}
 
 /**
  * @brief Get the PCB at index "idx" of the PCBTable.
