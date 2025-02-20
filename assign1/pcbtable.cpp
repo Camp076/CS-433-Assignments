@@ -43,6 +43,12 @@ PCBTable::~PCBTable() {
  */
 PCB* PCBTable::getPCB(unsigned int idx) {
     PCB* ptr = arr[idx];  
+
+    if (idx >= capacity){
+        cout << "The index is out of bounds!" <<endl;
+        return NULL;
+    }
+
     if (ptr == NULL){
         cout << "There is no PCB at this index!" <<endl; 
         return NULL;
