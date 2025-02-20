@@ -53,8 +53,13 @@ void ReadyQueue::addPCB(PCB *pcbPtr) {
         pcbPtr->prev = tails[pri];
         tails[pri] = pcbPtr;
     }
+    cout << "PCB being added is: ";
+    pcbPtr->display();
+    cout << endl; 
     
     num++;
+    cout << "The number of PCBs is: " <<num <<endl; 
+    
 }
 
 /**
