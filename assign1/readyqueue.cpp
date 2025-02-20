@@ -67,7 +67,7 @@ PCB* ReadyQueue::removePCB() {
     PCB* ptr;
     int i = 49; 
 
-    while (buckets[i] == NULL && i > 0){i--;}
+    while (buckets[i] == NULL && i >= 0){i--;}
     if (i == 0){
         cout << "The queue is empty!" << endl;
         return NULL;
@@ -102,7 +102,7 @@ void ReadyQueue::displayAll() {
        cout << "The queue is empty!" << endl;
        return;
    }
-
+   
    for (int i = 49; i >= 0; i--){
         ptr = buckets[i];
         while (ptr != NULL){ 
