@@ -21,7 +21,7 @@
      std::cout << "=================================" << std::endl;
  
      ReadyQueue q1;
-     PCBTable table(50);
+     PCBTable table;
  
      for (int i = 1; i <= 50; i++) {
          // Add a new PCB with id = i, priority = i to the table at index i
