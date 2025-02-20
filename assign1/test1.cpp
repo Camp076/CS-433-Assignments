@@ -62,7 +62,7 @@
      {
          p = q1.removePCB();
          p->display();
-         //q1.displayAll();
+         q1.displayAll();
      }
      return 0;
  }

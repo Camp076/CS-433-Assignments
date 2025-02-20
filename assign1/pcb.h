@@ -103,6 +103,12 @@ public:
      *
      */
     void display() const {
+
+        if (this == NULL) {
+            cout << "The PCB is NULL" << endl;
+            return;
+        }
+
         cout << "ID: " << this->id;
         cout << ", Priority: " << this->priority;
         cout << ", State: " ;

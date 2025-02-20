@@ -98,6 +98,12 @@ int ReadyQueue::size() {return num;}
  */
 void ReadyQueue::displayAll() {
    PCB* ptr;  
+
+   if (num == 0){
+       cout << "The queue is empty!" << endl;
+       return;
+   }
+   
    for (int i = 49; i >= 0; i--){
         ptr = buckets[i];
         while (ptr != NULL){ 
