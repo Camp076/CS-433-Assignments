@@ -30,6 +30,7 @@ ReadyQueue::~ReadyQueue() {}
 void ReadyQueue::addPCB(PCB *pcbPtr) {
     // When adding a PCB to the queue, you must change its state to READY.
     int pri; 
+    num++; 
 
     pcbPtr->setState(ProcState::READY); 
     pri = pcbPtr->getPriority();
@@ -56,6 +57,7 @@ void ReadyQueue::addPCB(PCB *pcbPtr) {
 PCB* ReadyQueue::removePCB() {
     // When removing a PCB from the queue, you must change its state to RUNNING.s
     PCB* ptr;
+    num--;
     int i = 49; 
 
     while (buckets[i] == NULL && i > 0){i--;}
@@ -88,13 +90,11 @@ int ReadyQueue::size() {
  * @brief Display the PCBs in the queue.
  */
 void ReadyQueue::displayAll() {
-   PCB* ptr; 
-   PCB temp; 
-   for (int i = 50; i > 0; i--){
+   PCB* ptr;  
+   for (int i = 49; i >= 0; i--){
         ptr = buckets[i];
-        while (ptr != NULL){
-                temp = *ptr; 
-                temp.display();
+        while (ptr != NULL){ 
+                ptr->display();
                 ptr = ptr->next; 
             }
         }
