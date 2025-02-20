@@ -66,6 +66,12 @@ PCB* PCBTable::getPCB(unsigned int idx) {
 void PCBTable::addPCB(PCB *pcb, unsigned int idx) {
     // Add a PCB pointer to the PCBTable at index idx.
     PCB* ptr = arr[idx];
+    
+    if (idx >= capacity){
+        cout << "The index is out of bounds!" <<endl;
+        return; 
+    }
+    
     if (ptr != NULL){
         cout << "This index is already in use!" <<endl;
         return; 
