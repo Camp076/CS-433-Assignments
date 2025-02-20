@@ -21,7 +21,13 @@ using namespace std;
 /**
  *@brief Destructor
 */
-ReadyQueue::~ReadyQueue() {}
+ReadyQueue::~ReadyQueue() {
+    for (int i = 49; i >= 0; i--){
+        while (buckets[i] != NULL){this->removePCB();}      
+    }
+    delete[]buckets;
+    delete[]tails;
+}
 
 
 /**
@@ -98,4 +104,5 @@ void ReadyQueue::displayAll() {
                 ptr = ptr->next; 
             }
         }
+         cout << "Number of elements: " << num << endl;
    }
