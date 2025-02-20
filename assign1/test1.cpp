@@ -61,7 +61,7 @@
      while(q1.size() > 0)
      {
          p = q1.removePCB();
-         p->display();
+        // p->display();
          q1.displayAll();
      }
      return 0;

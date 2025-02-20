@@ -82,7 +82,6 @@ PCB* ReadyQueue::removePCB() {
     ptr->prev = NULL; 
     ptr->setState(ProcState::RUNNING);
     num--;
-    cout << "Number of elements: " <<num <<endl; 
     return ptr;
 }
 
@@ -103,7 +102,7 @@ void ReadyQueue::displayAll() {
        cout << "The queue is empty!" << endl;
        return;
    }
-   
+
    for (int i = 49; i >= 0; i--){
         ptr = buckets[i];
         while (ptr != NULL){ 
