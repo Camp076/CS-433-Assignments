@@ -103,8 +103,8 @@ public:
      *
      */
     void display() const {
-        cout << "ID: " << id;
-        cout << ", Priority: " << priority;
+        cout << "ID: " << this->id;
+        cout << ", Priority: " << this->priority;
         cout << ", State: " ;
         switch(state) {
             case ProcState::NEW:

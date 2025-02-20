@@ -11,9 +11,11 @@ using namespace std;
  * @brief Constructor for the ReadyQueue class.
  */
  ReadyQueue::ReadyQueue()  {
-    for (int i = 0; i < 51; i++){
+    for (int i = 0; i < 50; i++){
         buckets[i] = NULL;
+        tails[i] = NULL; 
     }
+    num = 0;
  }
 
 /**
@@ -82,9 +84,7 @@ PCB* ReadyQueue::removePCB() {
  *
  * @return int: the number of PCBs in the queue
  */
-int ReadyQueue::size() {
-    return num;
-}
+int ReadyQueue::size() {return num;}
 
 /**
  * @brief Display the PCBs in the queue.
