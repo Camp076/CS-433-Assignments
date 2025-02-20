@@ -53,7 +53,7 @@ void ReadyQueue::addPCB(PCB *pcbPtr) {
         pcbPtr->prev = tails[pri];
         tails[pri] = pcbPtr;
     }
-
+    
     num++;
 }
 
@@ -68,11 +68,11 @@ PCB* ReadyQueue::removePCB() {
     int i = 49; 
 
     while (buckets[i] == NULL && i >= 0){i--;}
-    if (i == 0){
+    if (i < 0){
         cout << "The queue is empty!" << endl;
         return NULL;
     }
-    
+
     ptr = buckets[i];
     buckets[i] = ptr->next;
     if (buckets[i] != NULL){
