@@ -105,8 +105,7 @@ void ReadyQueue::displayAll() {
    }
    
    for (int i = 49; i >= 0; i--){
-        ptr = buckets[i];
-        cout << i <<": "; 
+        ptr = buckets[i]; 
         while (ptr != NULL){ 
                 ptr->display();
                 ptr = ptr->next; 
