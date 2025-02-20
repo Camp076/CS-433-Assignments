@@ -11,7 +11,7 @@ using namespace std;
  * @brief Constructor for the ReadyQueue class.
  */
  ReadyQueue::ReadyQueue()  {
-    for (int i = 1; i < 51; i++){
+    for (int i = 0; i < 51; i++){
         buckets[i] = NULL;
     }
  }
@@ -29,17 +29,22 @@ ReadyQueue::~ReadyQueue() {}
  */
 void ReadyQueue::addPCB(PCB *pcbPtr) {
     // When adding a PCB to the queue, you must change its state to READY.
-    pcbPtr->setState(ProcState::READY);  
-    int i = pcbPtr->priority; 
-    num ++; 
-    if (buckets[i] == NULL){
-        buckets[i] = tails[i] = pcbPtr; 
-        return; 
-    } 
-    tails[i]->next = pcbPtr;
-    pcbPtr->prev = tails[i]; 
-    tails[i] = pcbPtr; 
-    return;
+    int pri; 
+
+    pcbPtr->setState(ProcState::READY); 
+    pri = pcbPtr->getPriority();
+    pri--; 
+
+    if (buckets[pri] == NULL){
+        buckets[pri] = pcbPtr; 
+        tails[pri] = pcbPtr;
+    }
+
+    else{
+        tails[pri]->next = pcbPtr;
+        pcbPtr->prev = tails[pri];
+        tails[pri] = pcbPtr;
+    }
 
 }
 
@@ -51,26 +56,23 @@ void ReadyQueue::addPCB(PCB *pcbPtr) {
 PCB* ReadyQueue::removePCB() {
     // When removing a PCB from the queue, you must change its state to RUNNING.s
     PCB* ptr;
-    int i = 50; 
+    int i = 49; 
 
-    while (buckets[i] == NULL && i != 0){i--;}
+    while (buckets[i] == NULL && i > 0){i--;}
     if (i == 0){
-        cout << "The ready queue is empty!" <<endl; 
-        return NULL; 
+        cout << "The queue is empty!" << endl;
+        return NULL;
     }
-
-
+    
     ptr = buckets[i];
-    if (ptr->next != NULL){
-        buckets[i] = ptr->next; 
-        buckets[i]->prev = NULL; 
+    buckets[i] = ptr->next;
+    if (buckets[i] != NULL){
+        buckets[i]->prev = NULL;
     }
-  
-
+    ptr->next = NULL;
+    ptr->prev = NULL; 
     ptr->setState(ProcState::RUNNING);
-    delete ptr; 
-    return ptr; 
-        
+    return ptr;
 }
 
 /**
