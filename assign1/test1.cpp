@@ -61,7 +61,9 @@
      while(q1.size() > 0)
      {
          p = q1.removePCB();
-        // p->display();
+         cout << "PCB removed is: ";
+         p->display();
+         cout <<endl <<endl; 
          q1.displayAll();
      }
      return 0;
