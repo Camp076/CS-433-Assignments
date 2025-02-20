@@ -53,12 +53,8 @@ void ReadyQueue::addPCB(PCB *pcbPtr) {
         pcbPtr->prev = tails[pri];
         tails[pri] = pcbPtr;
     }
-    cout << "PCB being added is: ";
-    pcbPtr->display();
-    cout << endl; 
     
     num++;
-    cout << "The number of PCBs is: " <<num <<endl; 
     
 }
 
@@ -110,6 +106,7 @@ void ReadyQueue::displayAll() {
    
    for (int i = 49; i >= 0; i--){
         ptr = buckets[i];
+        cout << i <<": "; 
         while (ptr != NULL){ 
                 ptr->display();
                 ptr = ptr->next; 
