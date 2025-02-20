@@ -87,12 +87,12 @@ int ReadyQueue::size() {
  */
 void ReadyQueue::displayAll() {
    PCB* ptr; 
+   PCB temp; 
    for (int i = 50; i > 0; i--){
         ptr = buckets[i];
-        if (ptr != NULL){
-            cout << "Priority " << i << ": ";
-            while (ptr != NULL){
-                ptr->display();
+        while (ptr != NULL){
+                temp = *ptr; 
+                temp.display();
                 ptr = ptr->next; 
             }
         }
