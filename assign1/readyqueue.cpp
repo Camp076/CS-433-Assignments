@@ -111,5 +111,4 @@ void ReadyQueue::displayAll() {
                 ptr = ptr->next; 
             }
         }
-         cout << "Number of elements: " << num << endl;
    }
