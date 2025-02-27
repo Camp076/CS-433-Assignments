@@ -36,10 +36,11 @@ int parse_command(char command[], char *args[])
 
     while (token != NULL){
         args[i] = token; //stores token into args
+        i++; 
         token = strtok(NULL, " "); 
-        
     }
-    
+    args[i] = NULL; //sets last element to NULL
+    return i; 
 }
 
 // TODO: Add additional functions if you need
@@ -71,6 +72,7 @@ int main(int argc, char *argv[])
 
         //ensuring fork was successful
         if (pid < 0){printf("Fork failed \n") ; return 1;}
+        else {printf("Process ID is: %d", pid);}
         
 
         // TODO: Add your code for the implementation
