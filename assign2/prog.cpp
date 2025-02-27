@@ -2,7 +2,7 @@
 /**
  * Assignment 2: Simple UNIX Shell
  * @file pcbtable.h
- * @author ??? (TODO: your name)
+ * @author Jaiden Camp
  * @brief This is the main function of a simple UNIX Shell. You may add additional functions in this file for your implementation
  * @version 0.1
  */
@@ -30,7 +30,16 @@ using namespace std;
  */
 int parse_command(char command[], char *args[])
 {
-    // TODO: implement this function
+    int i = 0;
+    char *token; 
+    token = strtok(command, " "); //takes first part of the command
+
+    while (token != NULL){
+        args[i] = token; //stores token into args
+        token = strtok(NULL, " "); 
+        
+    }
+    
 }
 
 // TODO: Add additional functions if you need
@@ -51,12 +60,18 @@ int main(int argc, char *argv[])
 
     while (should_run)
     {
-        printf("osh>");
-        fflush(stdout);
-        // Read the input command
-        fgets(command, MAX_LINE, stdin);
-        // Parse the input command
-        int num_args = parse_command(command, args);
+        printf("osh>"); //prints what shell is accessing
+        fflush(stdout); //Ensures nothing is in the buffer
+     
+        fgets(command, MAX_LINE, stdin); //reads the command from the user input
+     
+        int num_args = parse_command(command, args); //Parses user command
+
+        pid_t pid = fork(); //forks the process
+
+        //ensuring fork was successful
+        if (pid < 0){printf("Fork failed \n") ; return 1;}
+        
 
         // TODO: Add your code for the implementation
         /**
